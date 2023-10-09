@@ -29,6 +29,7 @@
                                                     <li><a href="#">Hindi</a></li>
                                                 </ul>
                                             </li>
+                                            
                                         </ul>
                                     </div>
                                 </li>
@@ -41,6 +42,12 @@
                                             
                                             <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
                                             <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+                                            <li>
+                                                <!-- header-top-btn -->
+                                                <div class="header-top-btn">
+                                                    <a href="{{ route('add-listing') }}">Add Listing</a>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -91,18 +98,6 @@
                                         </ul>
                                     </li>
                                     <li class="menu-icon"><a href="{{ route('about') }}">About</a>
-                                        <ul>
-                                            <li><a href="{{ route('about') }}">About</a></li>
-                                            <li><a href="service.html">Services</a></li>
-                                            <li><a href="service-details.html">Service Details</a></li>
-                                            <li><a href="portfolio.html">Portfolio</a></li>
-                                            <li><a href="portfolio-2.html">Portfolio - 02</a></li>
-                                            <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="team-details.html">Team Details</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                            <li><a href="locations.html">Google Map Locations</a></li>
-                                        </ul>
                                     </li>
                                     <li class="menu-icon"><a href="{{ route('property') }}">Property</a>
                                         <ul>
@@ -134,17 +129,17 @@
                                                 <ul>
                                                     <li><a href="portfolio.html">Portfolio</a></li>
                                                     <li><a href="team.html">Team</a></li>
-                                                    <li><a href="faq.html">FAQ</a></li>
+                                                    <li><a href="{{ route('faq') }}">FAQ</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Inner Pages</a>
                                                 <ul>
-                                                    <li><a href="history.html">History</a></li>
-                                                    <li><a href="add-listing.html">Add Listing</a></li>
-                                                    <li><a href="locations.html">Google Map Locations</a></li>
-                                                    <li><a href="404.html">404</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
-                                                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                                                    <li><a href="{{ route('about') }}">About</a></li>
+                                                    <li><a href="{{ route('faq') }}">FAQ</a></li>
+                                                    <li><a href="{{ route('history') }}">History</a></li>
+                                                    <li><a href="{{ route('add-listing') }}">Add Listing</a></li>
+                                                    <li><a href="{{ route('404') }}">404</a></li>
+                                                    <li><a href="{{ route('contact') }}">Contact</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Shop Pages</a>
@@ -162,15 +157,52 @@
                                         </ul>
                                     </li>
                                     <li><a href="{{ route('contact') }}">Contact</a></li>
-                                    <li class="special-link">
-                                        <a href="{{ route('add-listing') }}">Add Listing</a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                         </nav>
                     </div>
                 </div>
-                <div class="col--- ltn__header-options ltn__header-options-2 ">
+                <div class="col ltn__header-options ltn__header-options-2 mb-sm-20">
+                    <!-- header-search-1 -->
+                    <div class="header-search-wrap">
+                        <div class="header-search-1">
+                            <div class="search-icon">
+                                <i class="icon-search for-search-show"></i>
+                                <i class="icon-cancel  for-search-close"></i>
+                            </div>
+                        </div>
+                        <div class="header-search-1-form">
+                            <form id="#" method="get"  action="#">
+                                <input type="text" name="search" value="" placeholder="Search here..."/>
+                                <button type="submit">
+                                    <span><i class="icon-search"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- user-menu -->
+                    <div class="ltn__drop-menu user-menu">
+                        <ul>
+                            <li>
+                                <a href="#"><i class="icon-user"></i></a>
+                                <ul>
+                                    <li><a href="{{ route('sign-in') }}">Sign in</a></li>
+                                    <li><a href="{{ route('register') }}">Register</a></li>
+                                    <li><a href="{{ route('account') }}">My Account</a></li>
+                                    <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- mini-cart -->
+                    <div class="mini-cart-icon">
+                        <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
+                            <i class="icon-shopping-cart"></i>
+                            <sup>2</sup>
+                        </a>
+                    </div>
+                    <!-- mini-cart -->
                     <!-- Mobile Menu Button -->
                     <div class="mobile-menu-toggle d-xl-none">
                         <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
@@ -319,15 +351,11 @@
                 <li><a href="#">Pages</a>
                     <ul class="sub-menu">
                         <li><a href="{{ route('about') }}">About</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="team.html">Team</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="history.html">History</a></li>
-                        <li><a href="add-listing.html">Add Listing</a></li>
-                        <li><a href="locations.html">Google Map Locations</a></li>
-                        <li><a href="404.html">404</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                        <li><a href="{{ route('register') }}">FAQ</a></li>
+                        <li><a href="{{ route('history') }}">History</a></li>
+                        <li><a href="{{ route('add-listing') }}">Add Listing</a></li>
+                        <li><a href="{{ route('404') }}">404</a></li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>

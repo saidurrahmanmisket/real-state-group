@@ -1,50 +1,26 @@
 <?php
 
-use App\Http\Controllers\frontend\AboutController;
-use App\Http\Controllers\frontend\AddListingController;
-use App\Http\Controllers\frontend\ContactController;
-use App\Http\Controllers\frontend\HomeController;
-use App\Http\Controllers\frontend\NewsController;
-use App\Http\Controllers\frontend\PagesController;
-use App\Http\Controllers\frontend\PropertyController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-    // frontend route------------------ 
+// frontend indexing route------------------ 
+
 Route::controller(HomeController::class)->group(function(){
-    Route::get('/','index')->name('home');
-    Route::get('/home','index')->name('home');
+    Route::get('/','home')->name('home');
+    Route::get('/home','home')->name('home');
+    Route::get('/about','about')->name('about');
+    Route::get('/property','property')->name('property');
+    Route::get('/news','news')->name('news');
+    Route::get('/contact','contact')->name('contact');
+    Route::get('/portfolio','portfolio')->name('portfolio');
+    Route::get('/add-listing','listing')->name('add-listing');
+    Route::get('/faq','faq')->name('faq');
+    Route::get('/history','history')->name('history');
+    Route::get('/404','notFound')->name('404');
+    Route::get('/sign-in','login')->name('sign-in');
+    Route::get('/register','register')->name('register');
+    Route::get('/my-account','account')->name('account');
+    Route::get('/wishlist','wishlist')->name('wishlist');
 });
-Route::controller(AboutController::class)->group(function(){
-    Route::get('/about','index')->name('about');
-});
-Route::controller(PropertyController::class)->group(function(){
-    Route::get('/property','index')->name('property');
-});
-Route::controller(NewsController::class)->group(function(){
-    Route::get('/news','index')->name('news');
-});
-Route::controller(ContactController::class)->group(function(){
-    Route::get('/contact','index')->name('contact');
-});
-Route::controller(PagesController::class)->group(function(){
-    Route::get('/portfolio','index')->name('portfolio');
-});
-Route::controller(AddListingController::class)->group(function(){
-    Route::get('/add-listing','index')->name('add-listing');
-});
-

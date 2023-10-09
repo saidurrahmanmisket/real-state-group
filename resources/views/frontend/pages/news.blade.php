@@ -1,4 +1,5 @@
-@extends('frontend.master')
+@extends('frontend.layout.master')
+
 @section('content')
 
 <div class="ltn__utilize-overlay"></div>
