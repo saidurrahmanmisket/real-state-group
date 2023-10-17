@@ -1027,10 +1027,5 @@
         const searchText = $('#product-search').val();
         updateProducts(searchText);
     });
-    $('.ammount').on('change',function () {
- 
-        const searchText = $(this).val();
-        updateProducts(searchText);
-    });
 
 </script>
