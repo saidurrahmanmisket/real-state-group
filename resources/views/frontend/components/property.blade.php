@@ -49,15 +49,15 @@
                                 <div class="col-lg-12">
                                     <!-- Search Widget -->
                                     <div class="ltn__search-widget mb-30">
-                                        <form action="#">
-                                            <input type="text" name="search" placeholder="Search your keyword...">
+                                        <form id="search-form" action="#">
+                                            <input id="product-search" type="text" name="search" placeholder="Search your keyword...">
                                             <button type="submit"><i class="fas fa-search"></i></button>
                                         </form>
                                     </div>
                                 </div>
                                 <div id="product-list" class=" row">
                                     
-                                    <!-- ltn__product-item -->
+                                    {{-- <!-- ltn__product-item -->
                                     <div class="col-xl-6 col-sm-6 col-12">
                                         <div
                                             class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
@@ -131,7 +131,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--  -->
+                                    <!--  --> --}}
                                 </div>
                             </div>
                         </div>
@@ -932,20 +932,20 @@
 
 
 <script>
-
-    async function updateProducts() {
+    async function updateProducts(searchText) {
         try {
             const response = await axios.get('https://dummyjson.com/products');
             const data = response.data;
 
             if (Array.isArray(data.products)) {
-                // Clear product list
+                // Clear the existing product list
                 $('#product-list').empty();
-
-                // Loop
                 data.products.forEach(function (product) {
-                    var productItem = `
-                    <!-- ltn__product-item -->
+                    if (
+                        product.title.toLowerCase().includes(searchText.toLowerCase()) 
+                    ) {
+                        var productItem = `
+                        <!-- ltn__product-item -->
                     <div class="col-xl-6 col-sm-6 col-12">
                         <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                             <div class="product-img">
@@ -1003,8 +1003,10 @@
                         </div>
                     </div>
                     <!--  -->
-                    `;
-                    $('#product-list').append(productItem);
+                        `;
+
+                        $('#product-list').append(productItem);
+                    }
                 });
             } else {
                 console.error('No Product found');
@@ -1013,7 +1015,22 @@
             console.error('Error fetching products. Please try again later.', error);
         }
     }
-    updateProducts();
+    updateProducts('');
 
+    // product search 
+    $('#product-search').on('keyup', function () {
+        const searchText = $(this).val();
+        updateProducts(searchText);
+    });
+    $('#search-form').submit(function (e) {
+        e.preventDefault(); 
+        const searchText = $('#product-search').val();
+        updateProducts(searchText);
+    });
+    $('.ammount').on('change',function () {
+ 
+        const searchText = $(this).val();
+        updateProducts(searchText);
+    });
 
 </script>
